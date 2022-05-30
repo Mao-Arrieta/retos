@@ -1,0 +1,1 @@
+data([1,3,6,8],['azul','plata','negro','negro','negro','azul','plata','negro','negro'],'negro')
