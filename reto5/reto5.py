@@ -58,10 +58,9 @@ def clima():
         lista5.append(round(sum(press5)/len(press5),1))
         resultado['5'] = lista5
 
-
         """Creación de archivo json"""
 
-        datos = json.dumps(resultado, indent="2") # Variable a retornar dentro del vpl
+        datos = json.dumps(resultado) # Variable a retornar dentro del vpl
         with open('datos_json.json', 'w') as file_json:
             json.dump(resultado,file_json, indent=2)
 
@@ -81,9 +80,7 @@ def clima():
 
         return temp, press
 
-
-
-    """Escribir en el nuevo archivo csv"""
+    # Escribir en el nuevo archivo csv
 
     with open('data.csv','r') as file:
         reader = csv.reader(file, delimiter=',')
@@ -92,15 +89,21 @@ def clima():
         with open('data_nuevo.csv', 'a', newline='') as f:
             writer = csv.writer(f, delimiter=',')
 
-            for linea in reader:    
-                above_temp,above_press = comparar(int(linea[2]),resultado['1'][0],int(linea[3]),resultado['1'][1])
-                above_temp,above_press = comparar(int(linea[2]),resultado['2'][0],int(linea[3]),resultado['2'][1])
-                above_temp,above_press = comparar(int(linea[2]),resultado['3'][0],int(linea[3]),resultado['3'][1])
-                above_temp,above_press = comparar(int(linea[2]),resultado['4'][0],int(linea[3]),resultado['4'][1])
-                above_temp,above_press = comparar(int(linea[2]),resultado['5'][0],int(linea[3]),resultado['5'][1])
+            for linea in reader: 
+                if linea[1] == '1':   
+                    above_temp,above_press = comparar(int(linea[2]),resultado['1'][0],int(linea[3]),resultado['1'][1])
+                elif linea[1] == '2':
+                    above_temp,above_press = comparar(int(linea[2]),resultado['2'][0],int(linea[3]),resultado['2'][1])
+                elif linea[1] == '3':
+                    above_temp,above_press = comparar(int(linea[2]),resultado['3'][0],int(linea[3]),resultado['3'][1])
+                elif linea[1] == '4':
+                    above_temp,above_press = comparar(int(linea[2]),resultado['4'][0],int(linea[3]),resultado['4'][1])
+                elif linea[1] == '5':    
+                    above_temp,above_press = comparar(int(linea[2]),resultado['5'][0],int(linea[3]),resultado['5'][1])
 
                 writer.writerow([linea[0],linea[1],linea[2],linea[3],above_temp,above_press])
-                
+
     return datos
 
-clima()
+print('')
+print(clima())
