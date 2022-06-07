@@ -6,7 +6,7 @@ def clima():
     resultado = {}
 
     """Creación del archivo csv data_nuevo.csv"""
-    encabezados = ['id','location','temperature','pressure','above_avg_temp ','above_avg_pres']
+    encabezados = ['id','location','temperature','pressure','above_avg_temp','above_avg_pres']
     with open('data_nuevo.csv', 'w', newline='') as file_csv:
         writer = csv.DictWriter(file_csv,fieldnames=encabezados,delimiter=',')
         writer.writeheader()
