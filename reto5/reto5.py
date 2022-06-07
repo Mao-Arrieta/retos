@@ -38,25 +38,35 @@ def clima():
         
         lista1=[]; lista2=[]; lista3=[]; lista4=[]; lista5=[];
 
-        lista1.append(round(sum(temp)/len(temp),1))
-        lista1.append(round(sum(press)/len(press),1))
-        resultado['1'] = lista1
+        temp_prom = round(sum(temp)/len(temp),1)
+        lista1.append(temp_prom)
+        press_prom = round(sum(press)/len(press),1)
+        lista1.append(press_prom)
+        resultado["1"] = lista1
 
-        lista2.append(round(sum(temp2)/len(temp2),1))
-        lista2.append(round(sum(press2)/len(press2),1))
-        resultado['2'] = lista2
+        temp_prom2 = round(sum(temp2)/len(temp2),1)
+        lista2.append(temp_prom2)
+        press_prom2 = round(sum(press2)/len(press2),1)
+        lista2.append(press_prom2)
+        resultado["2"] = lista2
 
-        lista3.append(round(sum(temp3)/len(temp3),1))
-        lista3.append(round(sum(press3)/len(press3),1))
-        resultado['3'] = lista3
+        temp_prom3 = round(sum(temp3)/len(temp3),1)
+        lista3.append(temp_prom3)
+        press_prom3 = round(sum(press3)/len(press3),1)
+        lista3.append(press_prom3)
+        resultado["3"] = lista3
 
-        lista4.append(round(sum(temp4)/len(temp4),1))
-        lista4.append(round(sum(press4)/len(press4),1))
-        resultado['4'] = lista1
+        temp_prom4 = round(sum(temp4)/len(temp4),1)
+        lista4.append(temp_prom4)
+        press_prom4 = round(sum(press4)/len(press4),1)
+        lista4.append(press_prom4)
+        resultado["4"] = lista4
 
-        lista5.append(round(sum(temp5)/len(temp5),1))
-        lista5.append(round(sum(press5)/len(press5),1))
-        resultado['5'] = lista5
+        temp_prom5 = round(sum(temp5)/len(temp5),1)
+        lista5.append(temp_prom5)
+        press_prom5 = round(sum(press5)/len(press5),1)
+        lista5.append(press_prom5)
+        resultado["5"] = lista5
 
         """Creación de archivo json"""
 
